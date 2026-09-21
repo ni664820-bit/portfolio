@@ -218,30 +218,30 @@ footer{text-align:center;padding:2rem;border-top:1px solid var(--glass-border);c
   <p class="section-sub reveal">Избранные работы</p>
   <div class="projects-grid">
     <div class="project-card reveal">
-      <img src="изображение_2026-07-14_234127102.png" alt="TANAXURE" class="project-img">
+      <img src="Снимок экрана (373).png" alt="Palate Royal" class="project-img">
       <div class="project-body">
-        <h3>TANAXURE — Premium Fishing Tackle</h3>
-        <p>Стильный лендинг для премиум-магазина рыболовных снастей с анимациями, кастомным курсором и прелоадером.</p>
-        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">GSAP</span></div>
-        <div class="project-links"><a href="https://ni664820-bit.github.io/tanaxure/" target="_blank">Live Demo →</a></div>
+        <h3>Palate Royal — Ресторан высокой кухни</h3>
+        <p>Элегантный лендинг ресторана с бронированием столиков, дегустационными сетами, галереей интерьера и формой заказа.</p>
+        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Анимации</span></div>
+        <div class="project-links"><a href="../Palate-Royal.io/index.html" target="_blank">Live Demo →</a></div>
       </div>
     </div>
     <div class="project-card reveal">
-      <img src="694b53224e5e2e451b2811242690b05b.jpg" alt="Карта путешествий" class="project-img">
+      <img src="Снимок экрана (372).png" alt="StackUp School" class="project-img">
       <div class="project-body">
-        <h3>Интерактивная карта путешествий</h3>
-        <p>Интерактивная карта мира с GeoJSON: клик по стране показывает флаг, информацию и местное время.</p>
-        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Leaflet</span><span class="tag">GeoJSON</span><span class="tag">REST API</span></div>
-        <div class="project-links"><a href="https://ni664820-bit.github.io/travel-map/" target="_blank">Live Demo →</a></div>
+        <h3>StackUp School — IT-школа нового поколения</h3>
+        <p>Современный сайт IT-школы с программами обучения, карьерной дорожкой, отзывами выпускников и формой записи.</p>
+        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Анимации</span></div>
+        <div class="project-links"><a href="../StackUP.io/index.html" target="_blank">Live Demo →</a></div>
       </div>
     </div>
     <div class="project-card reveal">
-      <img src="изображение_2026-07-14_234756936.png" alt="Flavor Map" class="project-img">
+      <img src="Снимок экрана (374).png" alt="JetVibe Airways" class="project-img">
       <div class="project-body">
-        <h3>Flavor Map — Карта вкусов</h3>
-        <p>Интерактивный гид для гурманов: выбор блюда по настроению, погоде или времени суток с анимациями и тёмной темой.</p>
-        <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Zustand</span><span class="tag">Framer Motion</span></div>
-        <div class="project-links"><a href="https://ni664820-bit.github.io/flavor-map/" target="_blank">Live Demo →</a><a href="https://github.com/ni664820-bit/flavor-map" target="_blank">GitHub →</a></div>
+        <h3>JetVibe Airways — Премиум-авиакомпания</h3>
+        <p>Премиум-лендинг авиакомпании с бронированием рейсов, направлениями, карточками сервиса и интерактивной формой.</p>
+        <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Анимации</span></div>
+        <div class="project-links"><a href="../JetVibe.io4/index.html" target="_blank">Live Demo →</a></div>
       </div>
     </div>
   </div>
@@ -346,7 +346,7 @@ const skillObs=new IntersectionObserver((entries)=>{
 $$('.skill-card').forEach(c=>skillObs.observe(c));
 $$('.skills-grid').forEach(g=>skillObs.observe(g));
 
-// Contact form validation
+// Contact form - mailto
 $('#contactForm').addEventListener('submit',function(e){
   e.preventDefault();
   let valid=true;
@@ -359,8 +359,11 @@ $('#contactForm').addEventListener('submit',function(e){
   if(!msg.value.trim()){me.style.display='block';valid=false}else me.style.display='none';
 
   if(valid){
+    const subject=encodeURIComponent('Сообщение с портфолио от '+name.value.trim());
+    const body=encodeURIComponent('Имя: '+name.value.trim()+'\nEmail: '+email.value.trim()+'\n\nСообщение:\n'+msg.value.trim());
+    window.location.href='mailto:ni664820@gmail.com?subject='+subject+'&body='+body;
     this.reset();
-    alert('Сообщение отправлено! Спасибо.');
+    alert('Откроется ваш почтовый клиент. Отправьте письмо — и мы свяжемся с вами!');
   }
 });
 
